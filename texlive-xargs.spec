@@ -18,8 +18,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 The package provides extended versions of \newcommand and
@@ -27,20 +25,12 @@ related LaTeX commands, which allow easy and robust definition
 of macros with many optional arguments, using a clear and
 simple xkeyval-style syntax.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -51,7 +41,6 @@ simple xkeyval-style syntax.
 %doc %{_texmfdistdir}/doc/latex/xargs/xargs.pdf
 #- source
 %doc %{_texmfdistdir}/source/latex/xargs/xargs.dtx
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -62,5 +51,3 @@ simple xkeyval-style syntax.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
