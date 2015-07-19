@@ -6,7 +6,7 @@
 # catalog-version 1.1
 Name:		texlive-xargs
 Version:	1.1
-Release:	9
+Release:	10
 Summary:	Define commands with many optional arguments
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/xargs
