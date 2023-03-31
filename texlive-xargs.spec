@@ -1,6 +1,6 @@
 Name:		texlive-xargs
 Version:	15878
-Release:	1
+Release:	2
 Summary:	Define commands with many optional arguments
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/xargs
